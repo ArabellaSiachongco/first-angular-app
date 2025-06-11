@@ -1,0 +1,83 @@
+<app-header />
+<!-- option 1 -->
+<!-- <main>
+  <ul id="users">
+    <li>
+      <app-user
+        [id]="users[0].id"
+        [img]="users[0].img"
+        [name]="users[0].name"
+        (select)="onSelectUser($event)"
+      />
+      event to store the data
+    </li>
+    <li>
+      <app-user
+        [id]="users[1].id"
+        [img]="users[1].img"
+        [name]="users[1].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    <li>
+      <app-user
+        [id]="users[2].id"
+        [img]="users[2].img"
+        [name]="users[2].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    <li>
+      <app-user
+        [id]="users[3].id"
+        [img]="users[3].img"
+        [name]="users[3].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+  </ul>
+
+  <app-tasks [name]="selectedUser.name" />
+</main>
+ -->
+
+<!-- option 2  if pinaghalo lahat ng list ng user-->
+<!-- <main>
+  <ul id="users">
+    <li>
+      <app-user [user]="users[0]" (select)="onSelectUser($event)" />
+      event to store the data
+    </li>
+    <li>
+      <app-user [user]="users[1]" (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[2]" (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[3]" (select)="onSelectUser($event)" />
+    </li>
+  </ul>
+
+  <app-tasks [name]="selectedUser.name" />
+</main> -->
+
+<!-- option 3: using for loop to get the information to users -->
+<main>
+  <ul id="users">
+    <!-- user of users is changeable, must have a track, tracking the whole documents -->
+    <!-- outputting list of data  -->
+    @for (user of users; track user.id){
+    <li>
+      <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectUser($event)" />
+      <!-- event to store the data -->
+    </li>
+    }
+  </ul>
+
+  @if (selectedUser) {
+    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
+  } @else {
+    <p id="fallback">Select a user to see their tasks!</p>
+  }
+</main>

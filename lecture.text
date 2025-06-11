@@ -1,0 +1,389 @@
+Transcript
+So in this section, you now learned a lot about Angular.
+
+You actually learned all about the crucial essentials
+
+every Angular developer must know.
+
+You learned about Components, why they matter,
+
+and that the idea is that you build
+
+potentially complex user interfaces with Components.
+
+And you learned how to create Components.
+
+That there are classes that are decorated
+
+with that Component decorator,
+
+which then holds the configuration
+
+for a Component, like its identifier, you could say,
+
+its selector, but also where to find the template
+
+or styles of a Component.
+
+Because a Component, in the end,
+
+is a custom HTML element, you could say.
+
+And the idea then is that you can use that element
+
+in the templates of other Components
+
+so that you're building a Component tree in the end.
+
+Now these Components can then also talk to each other
+
+with help of Inputs and Outputs.
+
+Inputs are, in the end, properties of a Component
+
+that can be set from outside that Component.
+
+So from inside the parent Component,
+
+which uses the other Component in its template.
+
+And Outputs are, in the end,
+
+custom events that can be emitted
+
+and that can also contain data
+
+so that a child Component can talk back
+
+to its parent Component
+
+and let it know about something that happened inside of it,
+
+which is a crucial feature.
+
+Now since things are happening in an Angular app,
+
+users might be clicking buttons and so on,
+
+it's also quite common that data changes
+
+in your Angular app,
+
+and therefore you might wanna output
+
+that dynamic data in the templates of your Components,
+
+which you can do with various template binding syntaxes
+
+like with string interpolation, which can be used to,
+
+for example, output the value stored in a property
+
+of your class.
+
+Or if you want to set a property of some DOM element,
+
+like the source of an image,
+
+you can do that with property binding.
+
+If you wanna listen to events,
+
+no matter if they're custom events or built-in events,
+
+you do that with event binding
+
+where you use these parentheses around the event name,
+
+and you then define the code
+
+that should be executed when the event occurs.
+
+By the way, a special kind of binding is two-way binding,
+
+which is typically used in conjunction with form inputs,
+
+which is unlocked
+
+by using this special two-way binding syntax
+
+on properties that support it.
+
+Most properties don't,
+
+but one property that does is the ngModel property,
+
+which is offered by the ngModel directive,
+
+which is available once you import it
+
+and unlock the FormsModule.
+
+You can then use the ngModel directive
+
+with its two-way binding syntax
+
+to set up this two-way communication on an Input element,
+
+for example, which allows you to listen to changes
+
+whilst also being able to send back data into the Input
+
+to update it, for example.
+
+Now coming back to data that changes,
+
+it's worth noting that by default,
+
+Angular watches for possible events
+
+that could lead to data changes
+
+and therefore UI changes automatically
+
+with help of an internal package called zone.js.
+
+And therefore, by default,
+
+all you have to do if you wanna update the UI
+
+is change some data,
+
+for example, after a button click,
+
+and output that data in the template
+
+with help of one of the template binding features,
+
+and Angular will figure out the rest,
+
+which is pretty convenient.
+
+You can, however, also use Signals instead
+
+where Angular is not automatically watching
+
+for all kinds of events that could lead to changes,
+
+but where you instead explicitly notify Angular
+
+about changes by, for example,
+
+calling the set method on a Signal value.
+
+And where Angular sets up a subscription
+
+whenever you read a Signal
+
+so that it knows which places of your app
+
+are interested in those data changes
+
+and should potentially be updated.
+
+And this, whilst being a bit more work for you,
+
+the developer, can therefore be a more efficient
+
+State management mechanism
+
+and can potentially lead to better performance.
+
+Though this Signals approach
+
+is only available since Angular version 16,
+
+and therefore in older Angular projects,
+
+you, for example, can't use it.
+
+Now it's also quite common that, for example,
+
+when some data changes,
+
+you wanna render some content conditionally
+
+only if a certain condition is met.
+
+And you can do that in Angular
+
+by using the @if template syntax,
+
+which also, however, is only available
+
+since Angular version 17.
+
+Before that, you had to use the special ngIf directive,
+
+which was a bit more clunky to use however,
+
+especially if you don't just have a if case,
+
+but also potentially some else
+
+or else if cases you want to handle.
+
+Also common is that you wanna output some list data,
+
+and you wanna repeat some part of the DOM
+
+for every element in an array, for example.
+
+This can be done with the @for template syntax,
+
+which makes it easy to loop through all the items
+
+in an array and output some markup
+
+for every element in that array.
+
+This feature is also only available
+
+since Angular version 17,
+
+and therefore in older Angular versions,
+
+you would use the ngFor directive instead.
+
+Other features we had a look at in this section were,
+
+for example, how to dynamically add or not add
+
+a CSS class to an element
+
+with help of that special class binding syntax.
+
+We also had a look at the special ng-content element,
+
+which is offered by Angular, which in the end,
+
+allows you to define a slot in the markup of a template
+
+that will be used to render the content
+
+that's passed between the tags of that Component,
+
+which can be really useful.
+
+And we also, for example, had a look at pipes,
+
+which make it easy to format and transform values
+
+you are outputting in the template,
+
+like for example, the date pipe,
+
+which can help with date formatting,
+
+another feature that's built into Angular.
+
+Another problem you commonly have to deal with
+
+is the submission of forms and how to handle that.
+
+And that's, again, a place where Angular helps you
+
+by giving you the special ngSubmit event
+
+to which you can listen,
+
+when using the forms module, I should say,
+
+which automatically prevents the browser's default,
+
+which would be to send an HTTP request
+
+to the server that served the website,
+
+which you typically don't want when building an Angular app,
+
+so that instead, you can then handle the form submission
+
+in the client side code, so in your Angular code,
+
+so that you have full control
+
+over how the form submission is handled.
+
+Well, and last but definitely not least,
+
+we had a look at Services,
+
+which is another crucial concept in Angular.
+
+To be precise, it's the combination of Services
+
+and Angular's dependency injection mechanism
+
+where the idea simply is that you can outsource data
+
+and logic from a Component into a Service
+
+and then inject that Service into all the Components
+
+that might be interested in the data
+
+or some of the methods exposed by the Service.
+
+You can inject that Service by decorating the Service class
+
+with the @Injectable decorator, which in the end,
+
+tells Angular that it should be aware of this Service,
+
+and that this is something you wanna inject somewhere.
+
+And you then do inject it either
+
+with help of the constructor
+
+by listing the Service as a dependency there,
+
+and it's the type annotation that's important here,
+
+or with help of the special inject function.
+
+And then the places where you injected the Service
+
+can use the entire API of that Service,
+
+which therefore makes sharing logic and data a breeze.
+
+So of course this section contained loads of content.
+
+It was a huge section,
+
+because there are many essential features
+
+you must be aware of.
+
+Now you can, of course, repeat that section
+
+as often as you want and as you need it
+
+so that you make sure that you really have
+
+that solid foundation.
+
+But you will, of course,
+
+also see all those fundamental concepts in Action again,
+
+over and over again throughout this entire course,
+
+in all the other sections,
+
+and in all the other demo projects we'll build.
+
+So there will be plenty of opportunities
+
+to work with these essentials.
+
+And therefore, we're now ready to take the next steps
+
+and dive deeper into those different core features
+
+Angular offers and also explore some more advanced concepts
+
+throughout the rest of this course.
+

@@ -1,0 +1,36 @@
+<app-card> 
+  <button [class.active]="selected" (click)="onSelectedUser()">
+    <!-- binding  like [src] -->
+
+    <!-- option1 -->
+    <!-- <img [src]="'assets/' + selectedUser.img"  [alt]="selectedUser.name" /> -->
+
+    <!-- option2 -->
+    <!-- <img [src]="imagePath()" [alt]="selectedUser().name" /> -->
+
+    <!-- option3 without signals and ()-->
+    <!-- <img [src]="imagePath" [alt]="name" /> -->
+
+    <!-- option4 input lowercase, special function-->
+    <!-- <img [src]="imagePath()" [alt]="name()" /> -->
+
+    <!-- option 5  -->
+    <img [src]="imagePath" [alt]="user.name" />
+
+    <!-- option 1  -->
+    <!-- string interpolation with 2 curly braces -->
+    <!-- <span>{{ selectedUser.name }}</span> -->
+
+    <!--option 2 with () if using signal  -->
+    <!-- <span>{{ selectedUser().name }}</span> -->
+
+    <!--option 3 without () and using signal  -->
+    <!-- <span>{{ name }}</span> -->
+
+    <!--option 4 input lowercase, special function  -->
+    <!-- <span>{{ name() }}</span> -->
+
+    <!-- option 5  -->
+    <span>{{ user.name }}</span>
+  </button>
+</app-card>
