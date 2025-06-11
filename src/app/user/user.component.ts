@@ -81,7 +81,7 @@ import {
 
 //importng a type
 import { type User } from './user.model';
-import { CardComponent } from "../shared/card/card.component";
+// import { CardComponent } from "../shared/card/card.component";
 
 // included in option 4: TYPE means typescript, User = first capital letter always,
 // type User = {
@@ -99,8 +99,8 @@ import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [CardComponent],
+  // standalone: true,
+  // imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })

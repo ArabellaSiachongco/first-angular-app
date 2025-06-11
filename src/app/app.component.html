@@ -69,15 +69,19 @@
     <!-- outputting list of data  -->
     @for (user of users; track user.id){
     <li>
-      <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectUser($event)" />
+      <app-user
+        [user]="user"
+        [selected]="user.id === selectedUserId"
+        (select)="onSelectUser($event)"
+      />
       <!-- event to store the data -->
     </li>
     }
   </ul>
 
   @if (selectedUser) {
-    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
+  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
   } @else {
-    <p id="fallback">Select a user to see their tasks!</p>
+  <p id="fallback">Select a user to see their tasks!</p>
   }
 </main>
